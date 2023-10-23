@@ -50,9 +50,9 @@ package leetcode.editor.cn;
 /**
  * 240:搜索二维矩阵 II
  */
-public class 搜索二维矩阵 II240 {
+public class 搜索二维矩阵II240 {
     public static void main(String[] args) {
-        Solution solution = new 搜索二维矩阵 II240().new Solution();
+        Solution solution = new 搜索二维矩阵II240().new Solution();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
