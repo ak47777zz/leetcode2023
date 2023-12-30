@@ -71,9 +71,9 @@
   /**
    * 142:环形链表 II
    */
-  public class 环形链表 II142 {
+  public class 环形链表II142 {
       public static void main(String[] args) {
-           Solution solution = new 环形链表 II142().new Solution();
+           Solution solution = new 环形链表II142().new Solution();
       }
       //leetcode submit region begin(Prohibit modification and deletion)
 /**
