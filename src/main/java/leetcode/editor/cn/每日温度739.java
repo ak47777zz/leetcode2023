@@ -55,6 +55,7 @@ public class 每日温度739 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 应该马上想到单调栈
         public int[] dailyTemperatures(int[] temperatures) {
             // 存的是下标
             Stack<Integer> stack = new Stack<>();
