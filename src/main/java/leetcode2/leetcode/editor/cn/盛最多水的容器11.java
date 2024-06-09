@@ -1,4 +1,4 @@
-  //给定一个长度为 n 的整数数组 height 。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。 
+//给定一个长度为 n 的整数数组 height 。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。
 //
 // 找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 
 //
@@ -42,22 +42,38 @@
 //
 //
 
-  
-  package leetcode2.leetcode.editor.cn;
-  
-  /**
-   * 11:盛最多水的容器
-   */
-  public class 盛最多水的容器11 {
-      public static void main(String[] args) {
-           Solution solution = new 盛最多水的容器11().new Solution();
-      }
-      //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int maxArea(int[] height) {
+package leetcode2.leetcode.editor.cn;
 
+/**
+ * 11:盛最多水的容器
+ */
+public class 盛最多水的容器11 {
+    public static void main(String[] args) {
+        Solution solution = new 盛最多水的容器11().new Solution();
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
 
-  }
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        // 双指针
+        public int maxArea(int[] height) {
+            int left = 0;
+            int right = height.length - 1;
+            int res = 0;
+            while (left < right) {
+                int high = Math.min(height[left], height[right]);
+                int width = right - left;
+                res = Math.max(res, high * width);
+                // 移动高度大的指针,面积一定会减少
+                // 移动高度小的指针,才有可能让面积变大
+                if (height[left] < height[right]) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+            return res;
+        }
+    }
+    //leetcode submit region end(Prohibit modification and deletion)
+
+}
