@@ -78,9 +78,9 @@ public class 二叉树的中序遍历94 {
     //leetcode submit region end(Prohibit modification and deletion)
 
     public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
 
         TreeNode() {}
 
