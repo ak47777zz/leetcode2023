@@ -86,8 +86,8 @@ public class 三数之和15 {
                 if (i > 0 && nums[i] == nums[i - 1]) {
                     continue;
                 }
-                int left = i + 1 ;
-                int right = nums.length -1 ;
+                int left = i + 1;
+                int right = nums.length - 1;
                 while (left < right) {
                     int sum = nums[i] + nums[left] + nums[right];
                     // 值需要增大
@@ -113,9 +113,7 @@ public class 三数之和15 {
                 }
             }
             return res;
-
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
-
 }

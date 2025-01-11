@@ -60,19 +60,19 @@ public class 无重复字符的最长子串3 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthOfLongestSubstring(String s) {
-            HashSet<Character> set = new HashSet<>();
-            int res = 0;
-
             // 每一轮循环，找到以当前字符开头的最大无重复子串长度
+            int res = 0;
+            HashSet<Character> set = new HashSet<>();
             int right = -1;
             for (int left = 0; left < s.length(); left++) {
+                // 右指针往右侧移动，如果字符无重复，加入set中
                 while (right + 1 < s.length() && !set.contains(s.charAt(right + 1))) {
                     set.add(s.charAt(right + 1));
                     right++;
                 }
-                // 此时计算最大长度
+                // 字符重复了，记录当前的最大长度
                 res = Math.max(res, set.size());
-                // 移除左指针字符
+                // 移除左指针元素
                 set.remove(s.charAt(left));
             }
             return res;

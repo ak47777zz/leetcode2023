@@ -101,7 +101,7 @@ public class 二叉树的最近公共祖先236 {
                 return left;
             }
 
-            // 左子树包含p或q并且左子树包含p或q， 则此节点就是p和q的最近公共祖先
+            // 左子树包含p或q并且右子树包含p或q， 则此节点就是p和q的最近公共祖先
             return root;
 
         }
