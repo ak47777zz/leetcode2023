@@ -14,14 +14,9 @@ public class Test {
     private final static Random random = new Random(System.currentTimeMillis());
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = Lists.newArrayList(1, 2, 3);
-        Collections.sort(list, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
-        System.out.println(list);
+       int a = 0;
+       int b = 4;
+        System.out.println(a^b);
 
     }
 

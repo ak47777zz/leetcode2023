@@ -54,7 +54,7 @@ public class 盛最多水的容器11 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-
+        // Krahets
         public int maxArea(int[] height) {
             int res = 0;
             int left = 0;
