@@ -29,13 +29,13 @@
 //
 // Related Topics广度优先搜索 | 数学 | 动态规划 
 //
-// 👍 2053, 👎 0 
+// 👍 2095, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
-package leetcode2.leetcode.editor.cn;
+package leetcode3.leetcode.editor.cn;
 
 import java.util.Arrays;
 
@@ -45,7 +45,6 @@ import java.util.Arrays;
 public class 完全平方数279 {
     public static void main(String[] args) {
         Solution solution = new 完全平方数279().new Solution();
-        solution.numSquares(12);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -57,9 +56,7 @@ public class 完全平方数279 {
             // dp[i]定义:表示的是当n等于i的时候完全平方数的最少数量
             for (int i = 1; i <= n; i++) { // 容量
                 for (int j = 1; j * j <= i; j++) { // 物品
-                    if (i >= j * j) {
-                        dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
-                    }
+                    dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
                 }
             }
             return dp[n];

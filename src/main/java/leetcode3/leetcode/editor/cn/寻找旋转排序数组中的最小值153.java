@@ -78,14 +78,14 @@ public class 寻找旋转排序数组中的最小值153 {
             // 相等的时候也需要处理，因为此时也可能是最小值
             while (left <= right) {
                 int mid = (left + right) / 2;
-                // min在左段，最小值在右边
+                // mid在左段，最小值在右边
                 if (nums[mid] > nums[right]) {
                     left = mid + 1;
                 } else if (nums[mid] < nums[right]) {
-                    // min在右段,最小值在左边
+                    // mid在右段,最小值在左边
                     right = mid;
                 } else {
-                    return nums[right];
+                    return nums[left];
                 }
 
             }

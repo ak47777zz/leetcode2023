@@ -11,13 +11,11 @@ import com.google.common.collect.Lists;
 
 public class Test {
 
-    private final static Random random = new Random(System.currentTimeMillis());
 
     public static void main(String[] args) {
-       int a = 0;
-       int b = 4;
-        System.out.println(a^b);
-
+        String s = "123  456";
+        String[] s1 = s.split(" ");
+        System.out.println(Arrays.toString(s1));
     }
 
 }

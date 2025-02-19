@@ -61,16 +61,16 @@
 //
 // Related Topics哈希表 | 链表 
 //
-// 👍 1498, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 1530, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
-package leetcode3.leetcode.editor.cn;
+package leetcode4.leetcode.editor.cn;
 
 import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * 138:随机链表的复制
@@ -80,43 +80,39 @@ public class 随机链表的复制138 {
         Solution solution = new 随机链表的复制138().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
+/*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/
 
     class Solution {
         public Node copyRandomList(Node head) {
-            // 存储老节点和新节点的映射关系
-            Map<Node, Node> map = new HashMap<>();
-
-            // 第一次循环构建老节点与节点的映射关系
+            HashMap<Node, Node> map = new HashMap<>();
             Node cur = head;
             while (cur != null) {
                 map.put(cur, new Node(cur.val));
                 cur = cur.next;
             }
 
-            // 第二次循环构建新节点next和random的关系
             cur = head;
             while (cur != null) {
                 map.get(cur).next = map.get(cur.next);
                 map.get(cur).random = map.get(cur.random);
                 cur = cur.next;
             }
-
             return map.get(head);
         }
-
     }
     //leetcode submit region end(Prohibit modification and deletion)
-
-     class Node {
-        public int val;
-        public Node next;
-        public Node random;
-
-        public Node(int val) {
-            this.val = val;
-            this.next = null;
-            this.random = null;
-        }
-    }
 
 }
