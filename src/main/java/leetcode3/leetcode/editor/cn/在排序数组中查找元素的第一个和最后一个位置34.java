@@ -51,6 +51,7 @@ package leetcode3.leetcode.editor.cn;
 public class 在排序数组中查找元素的第一个和最后一个位置34 {
     public static void main(String[] args) {
         Solution solution = new 在排序数组中查找元素的第一个和最后一个位置34().new Solution();
+        solution.searchRange(new int[] {5, 7, 7, 7, 8, 8, 10}, 7);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
