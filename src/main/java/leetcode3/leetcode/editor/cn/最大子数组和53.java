@@ -61,7 +61,7 @@
 class Solution {
     // 连续子数组问题，首先想到前缀和
     public int maxSubArray(int[] nums) {
-        int minPreSum = 0;
+        int minPreSum = Integer.MAX_VALUE;
         int preSum = 0;
         int res = Integer.MIN_VALUE;
         for (int num : nums) {

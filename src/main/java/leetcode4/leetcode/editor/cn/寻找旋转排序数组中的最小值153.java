@@ -28,7 +28,7 @@
 // 
 //输入：nums = [4,5,6,7,0,1,2]
 //输出：0
-//解释：原数组为 [0,1,2,4,5,6,7] ，旋转 3 次得到输入数组。
+//解释：原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。
 // 
 //
 // 示例 3： 
@@ -53,23 +53,22 @@
 //
 // Related Topics数组 | 二分查找 
 //
-// 👍 1160, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 1208, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
   
-  package leetcode2.leetcode.editor.cn;
-
+  package leetcode4.leetcode.editor.cn;
+  
   /**
    * 153:寻找旋转排序数组中的最小值
    */
   public class 寻找旋转排序数组中的最小值153 {
       public static void main(String[] args) {
            Solution solution = new 寻找旋转排序数组中的最小值153().new Solution();
-          int min = solution.findMin(new int[] {3, 4, 5, 1, 2});
-          //int min = solution.findMin(new int[] {1, 2, 3, 4, 5});
+          int min = solution.findMin(new int[] {4, 5, 6, 7, 0, 1, 2});
           System.out.println(min);
       }
       //leetcode submit region begin(Prohibit modification and deletion)
@@ -77,16 +76,12 @@ class Solution {
     public int findMin(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
-        // 这里没必要等于，因为left = right时，最小值肯定是这个index
         while (left < right) {
             int mid = (left + right) / 2;
-            // 若nums[mid]大于nums[right],说明最小值在右边
+            // mid在左段，最小值在右段
             if (nums[mid] > nums[right]) {
-                // 中值肯定不是最小值，所以直接右移一位
                 left = mid + 1;
-            }
-            if (nums[mid] < nums[right]) {
-                // 中值也可能是最小值，所以right直接更新为mid
+            } else {
                 right = mid;
             }
         }

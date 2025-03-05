@@ -39,8 +39,6 @@
 
 package leetcode2.leetcode.editor.cn;
 
-import javax.swing.plaf.TreeUI;
-
 /**
  * 55:跳跃游戏
  */
@@ -55,7 +53,7 @@ public class 跳跃游戏55 {
         public boolean canJump(int[] nums) {
             // 用最大覆盖范围的思路，只要能终点在最大覆盖范围内，就说明是可以达到的
             int jumpMost = 0;
-            for (int i = 0; i <=jumpMost ; i++) {
+            for (int i = 0; i <= jumpMost; i++) {
                 // 更新最大覆盖范围
                 jumpMost = Math.max(jumpMost, i + nums[i]);
                 if (jumpMost >= nums.length - 1) {
