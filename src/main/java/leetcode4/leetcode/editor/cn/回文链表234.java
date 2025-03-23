@@ -50,10 +50,12 @@
            Solution solution = new 回文链表234().new Solution();
           ListNode one = new ListNode(1);
           ListNode two1 = new ListNode(2);
-          ListNode two2 = new ListNode(2);
-          ListNode one2 = new ListNode(1);
           one.next = two1;
-          two1.next = two2;
+          ListNode three = new ListNode(3);
+          two1.next = three;
+          ListNode two2 = new ListNode(2);
+          three.next = two2;
+          ListNode one2 = new ListNode(1);
           two2.next = one2;
           solution.isPalindrome(one);
       }

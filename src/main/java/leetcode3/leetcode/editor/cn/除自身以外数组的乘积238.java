@@ -63,7 +63,7 @@ public class 除自身以外数组的乘积238 {
             }
             // 当前元素右边的乘积
             int[] right = new int[nums.length];
-            for (int i = nums.length -1 ; i >=0  ; i--) {
+            for (int i = nums.length - 1; i >= 0; i--) {
                 right[i] = i == nums.length - 1 ? 1 : right[i + 1] * nums[i+1];
             }
 

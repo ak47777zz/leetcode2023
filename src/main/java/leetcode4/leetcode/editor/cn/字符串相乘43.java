@@ -51,6 +51,7 @@ public class 字符串相乘43 {
         //     7 3 8
         //   6 1 5 0
         // 4 9 2 0 0
+        // 5 6 0 8 8
 
         public String multiply(String num1, String num2) {
             if ("0".equals(num1) || "0".equals(num2)) {
