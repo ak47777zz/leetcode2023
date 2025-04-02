@@ -46,6 +46,7 @@ package leetcode5.leetcode.editor.cn;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 402:移掉 K 位数字
@@ -60,7 +61,7 @@ public class 移掉 K 位数字402 {
         // 作者：笨猪爆破组
         // 单调栈
         public String removeKdigits(String num, int k) {
-            Deque<Character> stack = new LinkedList<>();
+            Stack<Character> stack = new Stack<>();
             for (char c : num.toCharArray()) {
                 while (k > 0 && !stack.isEmpty() && c < stack.peek()) {
                     stack.pop();
@@ -79,10 +80,10 @@ public class 移掉 K 位数字402 {
 
             StringBuffer buffer = new StringBuffer();
             while(!stack.isEmpty()){
-                buffer.append(stack.pollLast());
+                buffer.append(stack.pop());
             }
 
-            return buffer.length() == 0 ? "0" : buffer.toString();
+            return buffer.length() == 0 ? "0" : buffer.reverse().toString();
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

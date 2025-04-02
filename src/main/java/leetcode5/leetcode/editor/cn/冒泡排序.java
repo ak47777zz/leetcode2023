@@ -40,12 +40,18 @@
 
 package leetcode5.leetcode.editor.cn;
 
+import java.util.Arrays;
+
 /**
  * 912:排序数组
  */
 public class 冒泡排序 {
     public static void main(String[] args) {
         Solution solution = new 冒泡排序().new Solution();
+        int[] nums = new int[] {1, 5, 2, 4};
+        solution.sortArray(nums);
+        System.out.println(Arrays.toString(nums));
+
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

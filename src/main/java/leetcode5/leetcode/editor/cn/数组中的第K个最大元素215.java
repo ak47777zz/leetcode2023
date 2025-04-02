@@ -1,4 +1,4 @@
-  //给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。 
+//给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
 //
 // 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 
 //
@@ -36,34 +36,63 @@
 //
 //
 
-  
-  package leetcode5.leetcode.editor.cn;
+package leetcode5.leetcode.editor.cn;
 
-  import java.util.PriorityQueue;
+/**
+ * 215:数组中的第K个最大元素
+ */
+public class 数组中的第K个最大元素215 {
+    public static void main(String[] args) {
+        Solution solution = new 数组中的第K个最大元素215().new Solution();
+    }
 
-  /**
-   * 215:数组中的第K个最大元素
-   */
-  public class 数组中的第K个最大元素215 {
-      public static void main(String[] args) {
-           Solution solution = new 数组中的第K个最大元素215().new Solution();
-      }
-      //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-        for (int num : nums) {
-            if (queue.size() < k) {
-                queue.add(num);
-            } else {
-                if (num > queue.peek()) {
-                    queue.poll();
-                    queue.add(num);
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int findKthLargest(int[] nums, int k) {
+            // 第 1 大的数，下标是 len - 1;
+            // 第 2 大的数，下标是 len - 2;
+            // ...
+            // 第 k 大的数，下标是 len - k;
+            int len = nums.length;
+            int target = len - k;
+
+            int left = 0;
+            int right = len - 1;
+
+            while (true) {
+                int pivotIndex = pivotIndex(nums, left, right);
+                if (pivotIndex == target) {
+                    return nums[pivotIndex];
+                } else if (pivotIndex < target) {
+                    left = pivotIndex + 1;
+                } else {
+                    // pivotIndex > target
+                    right = pivotIndex - 1;
                 }
             }
         }
-        return queue.peek();
-    }
+
+        private int pivotIndex(int[] nums, int left, int right) {
+            int pivot = nums[left];
+            int i = left;
+            // 把小于pivot值的元素都交换到左边来
+            for (int j = left + 1; j <= right; j++) {
+                if (nums[j] <= pivot) {
+                    i++;
+                    swap(nums, i, j);
+                }
+            }
+            swap(nums, left, i);
+            return i;
+        }
+
+        private void swap(int[] nums, int left, int right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+        }
+
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

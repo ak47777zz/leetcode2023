@@ -59,6 +59,10 @@ public class 删除排序链表中的重复元素 II82 {
      */
     class Solution {
         public ListNode deleteDuplicates(ListNode head) {
+            if (head == null) {
+                return head;
+            }
+            // 虚拟头节点，兼容头被删除的情况
             ListNode dummy = new ListNode(-1, head);
             ListNode cur = dummy;
             while (cur.next != null && cur.next.next != null) {

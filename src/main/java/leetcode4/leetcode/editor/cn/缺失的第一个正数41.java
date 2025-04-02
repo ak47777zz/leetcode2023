@@ -35,13 +35,13 @@
 //
 // Related Topics数组 | 哈希表 
 //
-// 👍 2321, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 2308, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
-package leetcode5.leetcode.editor.cn;
+package leetcode4.leetcode.editor.cn;
 
 /**
  * 41:缺失的第一个正数
@@ -53,20 +53,21 @@ public class 缺失的第一个正数41 {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // 作者liweiwei
+        // https://www.bilibili.com/video/BV167411N7vd/?spm_id_from=333.337.search-card.all.click&vd_source=59cabb2bef774a4a1049ba1357ebc931
         public int firstMissingPositive(int[] nums) {
-            // 开始整理
-            for (int i = 0; i < nums.length; i++) {
+            int length = nums.length;
+            for (int i = 0; i < length; i++) {
                 while (nums[i] >= 1 && nums[i] <= nums.length && nums[nums[i] - 1] != nums[i]) {
                     swap(nums, i, nums[i] - 1);
                 }
             }
-
-            for (int i = 0; i < nums.length; i++) {
+            for (int i = 0; i < length; i++) {
                 if (i + 1 != nums[i]) {
                     return i + 1;
                 }
             }
-            return nums.length + 1;
+            return length + 1;
         }
 
         private void swap(int[] nums, int left, int right) {
@@ -74,7 +75,6 @@ public class 缺失的第一个正数41 {
             nums[left] = nums[right];
             nums[right] = temp;
         }
-
     }
     //leetcode submit region end(Prohibit modification and deletion)
 

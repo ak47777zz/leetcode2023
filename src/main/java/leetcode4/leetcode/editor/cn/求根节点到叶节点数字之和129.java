@@ -50,13 +50,13 @@
 //
 // Related Topics树 | 深度优先搜索 | 二叉树 
 //
-// 👍 802, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 798, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
-package leetcode5.leetcode.editor.cn;
+package leetcode4.leetcode.editor.cn;
 
 import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
 
@@ -66,12 +66,6 @@ import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
 public class 求根节点到叶节点数字之和129 {
     public static void main(String[] args) {
         Solution solution = new 求根节点到叶节点数字之和129().new Solution();
-        TreeNode root = new TreeNode(1);
-        TreeNode left = new TreeNode(2);
-        TreeNode right = new TreeNode(3);
-        root.left = left;
-        root.right = right;
-        solution.sumNumbers(root);
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -91,23 +85,20 @@ public class 求根节点到叶节点数字之和129 {
      * }
      */
     class Solution {
+        // 作者:Jacky
         public int sumNumbers(TreeNode root) {
-            return sumNumbers(root, 0);
+            return helper(root, 0);
         }
 
-        private int sumNumbers(TreeNode root, int val) {
+        private int helper(TreeNode root, int i) {
             if (root == null) {
                 return 0;
             }
-            int temp = val * 10 + root.val;
-
-            // 当前节点是叶子节点
+            int temp = i * 10 + root.val;
             if (root.left == null && root.right == null) {
                 return temp;
             }
-
-            return sumNumbers(root.left, temp) + sumNumbers(root.right, temp);
-
+            return helper(root.left, temp) + helper(root.right, temp);
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

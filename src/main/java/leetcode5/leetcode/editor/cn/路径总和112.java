@@ -1,4 +1,4 @@
-//给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和
+  //给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和
 // targetSum 。如果存在，返回 true ；否则，返回 false 。 
 //
 // 叶子节点 是指没有子节点的节点。 
@@ -43,54 +43,55 @@
 //
 // Related Topics树 | 深度优先搜索 | 广度优先搜索 | 二叉树 
 //
-// 👍 1437, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 1440, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
-package leetcode5.leetcode.editor.cn;
+  
+  package leetcode5.leetcode.editor.cn;
 
-import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
+  import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
 
+  /**
+   * 112:路径总和
+   */
+  public class 路径总和112 {
+      public static void main(String[] args) {
+           Solution solution = new 路径总和112().new Solution();
+      }
+      //leetcode submit region begin(Prohibit modification and deletion)
 /**
- * 112:路径总和
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
  */
-public class 路径总和112 {
-    public static void main(String[] args) {
-        Solution solution = new 路径总和112().new Solution();
-    }
-    //leetcode submit region begin(Prohibit modification and deletion)
-
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     * int val;
-     * TreeNode left;
-     * TreeNode right;
-     * TreeNode() {}
-     * TreeNode(int val) { this.val = val; }
-     * TreeNode(int val, TreeNode left, TreeNode right) {
-     * this.val = val;
-     * this.left = left;
-     * this.right = right;
-     * }
-     * }
-     */
-    class Solution {
-        // 作者：灵茶山艾府
-        public boolean hasPathSum(TreeNode root, int targetSum) {
-            if (root == null) {
-                return false;
-            }
-            targetSum = targetSum - root.val;
-            // 到达叶子节点
-            if (root.left == null && root.right == null) {
-                return targetSum == 0;
-            }
-            return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
         }
-    }
-    //leetcode submit region end(Prohibit modification and deletion)
 
+        targetSum = targetSum - root.val;
+        if (root.left == null && root.right == null) {
+            return targetSum == 0;
+        }
+
+        return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
+        
+    }
 }
+//leetcode submit region end(Prohibit modification and deletion)
+
+  }

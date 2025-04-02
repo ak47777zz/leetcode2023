@@ -98,6 +98,7 @@ public class 复原 IP 地址93 {
             if (start > end) {
                 return false;
             }
+            // 开头为 0 不合法
             if (s.charAt(start) == '0' && start != end) {
                 return false;
             }

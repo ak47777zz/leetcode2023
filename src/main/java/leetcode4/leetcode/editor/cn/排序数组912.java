@@ -38,7 +38,7 @@
 //
 //
 
-package leetcode5.leetcode.editor.cn;
+package leetcode4.leetcode.editor.cn;
 
 /**
  * 912:排序数组
