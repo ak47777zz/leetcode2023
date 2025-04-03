@@ -48,31 +48,53 @@
 //
 //
 
-  
 package leetcode6.leetcode.editor.cn;
-  
+
+import leetcode.editor.cn.将有序数组转换为二叉搜索树108.TreeNode;
+
 /**
  * 236:二叉树的最近公共祖先
  */
 public class 二叉树的最近公共祖先236 {
     public static void main(String[] args) {
-         Solution solution = new 二叉树的最近公共祖先236().new Solution();
+        Solution solution = new 二叉树的最近公共祖先236().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
+    class Solution {
+        // 函数定义：判断当前节点及其子树是否包含p或q，如果有返回当前节点
+        public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+            if (root == null) {
+                return null;
+            }
+            if (root == p || root == q) {
+                return root;
+            }
+
+            TreeNode left = lowestCommonAncestor(root.left, p, q);
+            TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+            if (left == null && right == null) {
+                return null;
+            }
+            if (left == null) {
+                return right;
+            }
+            if (right == null) {
+                return left;
+            }
+            return root;
+        }
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }
