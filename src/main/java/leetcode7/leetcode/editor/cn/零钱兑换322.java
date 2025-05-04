@@ -1,4 +1,4 @@
-package leetcode6.leetcode.editor.cn;
+package leetcode7.leetcode.editor.cn;
 
 import java.util.Arrays;
 

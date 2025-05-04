@@ -65,12 +65,9 @@ public class 前 K 个高频元素347 {
 
             // 2.使用最小堆，堆顶是当前最小值，遍历一遍，每次新增元素都将堆顶元素移除，剩下的K个元素就是高频元素
             // 初始化最小堆
-            PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-                @Override
-                public int compare(Integer o1, Integer o2) {
-                    // 正序排列,是最小值在堆顶
-                    return countMap.get(o1) - countMap.get(o2);
-                }
+            PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> {
+                // 正序排列,是最小值在堆顶
+                return countMap.get(o1) - countMap.get(o2);
             });
 
             // 3.频次放入最小堆
