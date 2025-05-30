@@ -50,45 +50,44 @@
 //
 //
 
-
 package leetcode7.leetcode.editor.cn;
-  
+
 /**
  * 33:搜索旋转排序数组
  */
 public class 搜索旋转排序数组33 {
     public static void main(String[] args) {
-         Solution solution = new 搜索旋转排序数组33().new Solution();
+        Solution solution = new 搜索旋转排序数组33().new Solution();
     }
+
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int search(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            }
-            // mid在左段
-            if (nums[mid] > nums[right]) {
-                if (nums[left] <= target && target < nums[mid]) {
-                    right = mid - 1;
-                } else {
-                    left = mid + 1;
+    class Solution {
+        public int search(int[] nums, int target) {
+            int left = 0;
+            int right = nums.length - 1;
+            while (left <= right) {
+                int mid = (left + right) / 2;
+                if (nums[mid] == target) {
+                    return mid;
                 }
-            } else {
-                // mid在右段
-                if (nums[mid] < target && target <= nums[right]) {
-                    left = mid + 1;
+                // mid在左段
+                if (nums[mid] > nums[right]) {
+                    if (nums[left] <= target && target < nums[mid]) {
+                        right = mid - 1;
+                    } else {
+                        left = mid + 1;
+                    }
                 } else {
-                    right = mid - 1;
+                    if (nums[mid] < target && target <= nums[right]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
                 }
             }
+            return -1;
         }
-        return -1;
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }
