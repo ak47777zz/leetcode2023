@@ -1,25 +1,19 @@
-//给定一个二叉树 root ，返回其最大深度。 
-//
-// 二叉树的 最大深度 是指从根节点到最远叶子节点的最长路径上的节点数。 
+//给你一个二叉树的根节点 root ， 检查它是否轴对称。 
 //
 // 
 //
 // 示例 1： 
-//
 // 
-//
 // 
-//
-// 
-//输入：root = [3,9,20,null,null,15,7]
-//输出：3
+//输入：root = [1,2,2,3,4,4,3]
+//输出：true
 // 
 //
 // 示例 2： 
-//
 // 
-//输入：root = [1,null,2]
-//输出：2
+// 
+//输入：root = [1,2,2,null,3,null,3]
+//输出：false
 // 
 //
 // 
@@ -27,13 +21,17 @@
 // 提示： 
 //
 // 
-// 树中节点的数量在 [0, 10⁴] 区间内。 
+// 树中节点数目在范围 [1, 1000] 内 
 // -100 <= Node.val <= 100 
 // 
 //
+// 
+//
+// 进阶：你可以运用递归和迭代两种方法解决这个问题吗？ 
+//
 // Related Topics树 | 深度优先搜索 | 广度优先搜索 | 二叉树 
 //
-// 👍 1968, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 2961, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
@@ -45,11 +43,11 @@ package leetcode7.leetcode.editor.cn;
 import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
 
 /**
- * 104:二叉树的最大深度
+ * 101:对称二叉树
  */
-public class 二叉树的最大深度104 {
+public class 对称二叉树101 {
     public static void main(String[] args) {
-         Solution solution = new 二叉树的最大深度104().new Solution();
+         Solution solution = new 对称二叉树101().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -68,8 +66,8 @@ public class 二叉树的最大深度104 {
  * }
  */
 class Solution {
-    public int maxDepth(TreeNode root) {
-
+    public boolean isSymmetric(TreeNode root) {
+        
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

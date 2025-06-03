@@ -40,7 +40,6 @@
 //
 //
 
-
 package leetcode7.leetcode.editor.cn;
 
 import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
@@ -50,54 +49,31 @@ import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
  */
 public class 平衡二叉树110 {
     public static void main(String[] args) {
-         Solution solution = new 平衡二叉树110().new Solution();
+        Solution solution = new 平衡二叉树110().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public boolean isBalanced(TreeNode root) {
-        int value = getHigh(root);
-        return value != -1;
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        public boolean isBalanced(TreeNode root) {
+
+        }
 
     }
-
-    private int getHigh(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-
-        int leftHigh = getHigh(root.left);
-        if (leftHigh == -1) {
-            return -1;
-        }
-
-        int rightHigh = getHigh(root.right);
-        if (rightHigh == -1) {
-            return -1;
-        }
-
-        int diff = Math.abs(leftHigh - rightHigh);
-        if (diff > 1) {
-            return -1;
-        }
-
-        return Math.max(leftHigh, rightHigh) + 1;
-    }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

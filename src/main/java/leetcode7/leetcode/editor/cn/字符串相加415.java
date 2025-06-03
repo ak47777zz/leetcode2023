@@ -58,7 +58,22 @@ public class 字符串相加415 {
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String addStrings(String num1, String num2) {
-        
+        int i = num1.length() - 1;
+        int j = num2.length() - 1;
+
+        StringBuilder sb = new StringBuilder();
+
+        int carry = 0;
+        while (i >= 0 || j >= 0 || carry != 0) {
+            int value1 = i >= 0 ? num1.charAt(i) - '0' : 0;
+            int value2 = j >= 0 ? num2.charAt(j) - '0' : 0;
+            int value = value1 + value2 + carry;
+            carry = value / 10;
+            sb.append(value % 10);
+            i--;
+            j--;
+        }
+        return sb.reverse().toString();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

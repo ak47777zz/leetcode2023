@@ -69,20 +69,10 @@ public class 二叉树的直径543 {
 class Solution {
     int res = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        max(root);
-        return res;
+
     }
 
-    private int max(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
 
-        int left = max(root.left);
-        int right = max(root.right);
-        res = Math.max(res, left + right);
-        return Math.max(left, right) + 1;
-    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

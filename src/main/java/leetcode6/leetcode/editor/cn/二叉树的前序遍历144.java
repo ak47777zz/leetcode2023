@@ -57,15 +57,21 @@
 //
 // Related Topics栈 | 树 | 深度优先搜索 | 二叉树 
 //
-// 👍 1335, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
+// 👍 1330, 👎 0bug 反馈 | 使用指南 | 更多配套插件 
 //
 //
 //
 //
 
 
-package leetcode7.leetcode.editor.cn;
-  
+package leetcode6.leetcode.editor.cn;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
+
 /**
  * 144:二叉树的前序遍历
  */
@@ -91,7 +97,25 @@ public class 二叉树的前序遍历144 {
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            res.add(node.val);
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+        }
+        return res;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

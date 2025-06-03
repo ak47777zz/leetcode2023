@@ -13,9 +13,10 @@ public class Test {
 
 
     public static void main(String[] args) {
-        String s = "123  456";
-        String[] s1 = s.split(" ");
-        System.out.println(Arrays.toString(s1));
+        String a = new String("123");
+        String b = new String("123");
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
     }
 
 }

@@ -44,7 +44,6 @@
 //
 //
 
-
 package leetcode7.leetcode.editor.cn;
 
 import java.util.ArrayList;
@@ -58,49 +57,46 @@ import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
  */
 public class 二叉树的中序遍历94 {
     public static void main(String[] args) {
-         Solution solution = new 二叉树的中序遍历94().new Solution();
+        Solution solution = new 二叉树的中序遍历94().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null) {
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        public List<Integer> inorderTraversal(TreeNode root) {
+            List<Integer> res = new ArrayList<>();
+            if (root == null) {
+                return res;
+            }
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode cur = root;
+            while (!stack.empty() || cur != null) {
+                while (cur != null) {
+                    stack.push(cur);
+                    cur = cur.left;
+                }
+                cur = stack.pop();
+                res.add(cur.val);
+                cur = cur.right;
+            }
             return res;
         }
 
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
-            // 左侧元素一加到底
-            while (cur != null) {
-                stack.push(cur);
-                cur = cur.left;
-            }
-            // 左侧元素为空，取栈顶元素
-            cur = stack.pop();
-            res.add(cur.val);
-
-            // 切到右侧分支
-            cur = cur.right;
-        }
-        return res;
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }
