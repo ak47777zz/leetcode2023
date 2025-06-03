@@ -47,31 +47,31 @@
 //
 //
 
-
 package leetcode7.leetcode.editor.cn;
-  
+
 /**
  * 53:最大子数组和
  */
 public class 最大子数组和53 {
     public static void main(String[] args) {
-         Solution solution = new 最大子数组和53().new Solution();
-    }
-    //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int maxSubArray(int[] nums) {
-        int preMin = 0;
-        int preSum = 0;
-        int res = Integer.MIN_VALUE;
-        for (int num : nums) {
-            preSum = preSum + num;
-            res = Math.max(res, preSum - preMin);
-            preMin = Math.min(preMin, preSum);
-        }
-        return res;
+        Solution solution = new 最大子数组和53().new Solution();
     }
 
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int maxSubArray(int[] nums) {
+            int preMin = 0;
+            int preSum = 0;
+            int res = Integer.MIN_VALUE;
+            for (int num : nums) {
+                preSum = preSum + num;
+                res = Math.max(res, preSum - preMin);
+                preMin = Math.min(preMin, preSum);
+            }
+            return res;
+        }
+
+    }
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

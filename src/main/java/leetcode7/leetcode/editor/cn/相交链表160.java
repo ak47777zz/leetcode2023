@@ -119,6 +119,7 @@ public class 相交链表160 {
  * }
  */
 public class Solution {
+    // 方法 1 ：hashset 元素判重
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode A = headA;
         ListNode B = headB;
