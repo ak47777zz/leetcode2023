@@ -6,6 +6,7 @@ package leetcode5.leetcode.editor.cn;
  */
 public class sortOddEvenList2 {
 
+    // 1->8->3->6->5->4->7->2->NULL
     public class Solution {
         public ListNode sortOddEvenList(ListNode head) {
             if (head == null || head.next == null) {

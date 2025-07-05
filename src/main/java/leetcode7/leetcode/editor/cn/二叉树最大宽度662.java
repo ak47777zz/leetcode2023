@@ -87,7 +87,25 @@ public class 二叉树最大宽度662 {
      */
     class Solution {
         public int widthOfBinaryTree(TreeNode root) {
-
+            Deque<TreeNode> deque = new LinkedList<>();
+            deque.add(root);
+            int res = 0;
+            while (!deque.isEmpty()) {
+                res = Math.max(res, deque.getLast().val - deque.getFirst().val + 1);
+                int size = deque.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode node = deque.poll();
+                    if (node.left != null) {
+                        node.left.val = node.val * 2;
+                        deque.add(node.left);
+                    }
+                    if (node.right != null) {
+                        node.right.val = node.val * 2 + 1;
+                        deque.add(node.right);
+                    }
+                }
+            }
+            return res;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

@@ -85,7 +85,6 @@ public class 单词搜索79 {
             }
 
             board[i][j] = '\0';
-
             boolean res = exist(board, word, i + 1, j, index + 1)
                 || exist(board, word, i - 1, j, index + 1)
                 || exist(board, word, i, j + 1, index + 1)
@@ -93,6 +92,7 @@ public class 单词搜索79 {
             board[i][j] = word.charAt(index);
             return res;
         }
+
     }
     //leetcode submit region end(Prohibit modification and deletion)
 

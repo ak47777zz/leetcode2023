@@ -69,30 +69,27 @@ public class 从前序与中序遍历序列构造二叉树105 {
      */
     class Solution {
         public TreeNode buildTree(int[] preorder, int[] inorder) {
-            return build(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+            return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
         }
 
-        private TreeNode build(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd) {
+        private TreeNode buildTree(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd) {
             if (preStart > preEnd || inStart > inEnd) {
                 return null;
             }
-
             // 前序遍历第一个元素为根节点
             int rootVal = preorder[preStart];
             TreeNode root = new TreeNode(rootVal);
-
-            // 找到根节点在中序遍历中的下标
+            // 找到根节点在中序遍历中的位置
             int index;
             for (index = inStart; index <= inEnd; index++) {
                 if (inorder[index] == rootVal) {
                     break;
                 }
             }
-
-            // 根节点左侧元素数量
+            // 计算左子树元素数量
             int leftNum = index - inStart;
-            root.left = build(preorder, preStart + 1, preStart + leftNum, inorder, inStart, index - 1);
-            root.right = build(preorder, preStart + leftNum + 1, preEnd , inorder, index + 1 , inEnd);
+            root.left = buildTree(preorder, preStart + 1, preStart + leftNum, inorder, inStart, index - 1);
+            root.right = buildTree(preorder, preStart + leftNum + 1, preEnd, inorder, index +1 , inEnd);
             return root;
         }
     }

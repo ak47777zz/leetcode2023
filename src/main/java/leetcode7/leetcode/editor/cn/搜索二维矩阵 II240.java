@@ -58,7 +58,18 @@ public class 搜索二维矩阵 II240 {
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        
+        int i  = 0;
+        int j = matrix[0].length - 1;
+        while (i < matrix.length && j >= 0) {
+            if (matrix[i][j] == target) {
+                return true;
+            } else if (target > matrix[i][j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return false;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

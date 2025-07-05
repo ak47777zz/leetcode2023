@@ -93,15 +93,11 @@ class Solution {
         if (root == null) {
             return 0;
         }
-
-        int temp = value * 10 + root.val;
-
-        // 叶子节点
+        value = value * 10 + root.val;
         if (root.left == null && root.right == null) {
-            return temp;
+            return value;
         }
-
-        return sumNumbers(root.left, temp) + sumNumbers(root.right, temp);
+        return sumNumbers(root.left, value) + sumNumbers(root.right, value);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

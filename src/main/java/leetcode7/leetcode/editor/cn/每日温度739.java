@@ -56,17 +56,15 @@ public class 每日温度739 {
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int[] res = new int[temperatures.length];
-        // 存的下标
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < temperatures.length; i++) {
-            while (!stack.empty() && temperatures[i] > temperatures[stack.peek()]) {
+            while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
                 Integer index = stack.pop();
                 res[index] = i - index;
             }
             stack.push(i);
         }
         return res;
-
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

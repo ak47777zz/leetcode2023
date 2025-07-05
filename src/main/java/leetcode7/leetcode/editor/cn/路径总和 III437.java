@@ -77,7 +77,7 @@ public class 路径总和 III437 {
             return res;
         }
 
-        private void preOrder(TreeNode root, int targetSum) {
+        private void preOrder(TreeNode root, long targetSum) {
             if (root == null) {
                 return;
             }
@@ -97,6 +97,7 @@ public class 路径总和 III437 {
             dfs(root.left, targetSum);
             dfs(root.right, targetSum);
         }
+
     }
     //leetcode submit region end(Prohibit modification and deletion)
 

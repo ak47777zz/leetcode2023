@@ -39,7 +39,6 @@
 //
 //
 
-
 package leetcode7.leetcode.editor.cn;
 
 import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
@@ -49,48 +48,48 @@ import leetcode2.leetcode.editor.cn.二叉树的中序遍历94.TreeNode;
  */
 public class 二叉树中的最大路径和124 {
     public static void main(String[] args) {
-         Solution solution = new 二叉树中的最大路径和124().new Solution();
+        Solution solution = new 二叉树中的最大路径和124().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    int res = Integer.MIN_VALUE;
 
-    public int maxPathSum(TreeNode root) {
-        max(root);
-        return res;
-    }
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
 
-    // 求以当前节点为端点的最大值
-    private int max(TreeNode root) {
-        if (root == null) {
-            return 0;
+        int res = Integer.MIN_VALUE;
+
+        public int maxPathSum(TreeNode root) {
+            getMax(root);
+            return res;
         }
 
-        int left = max(root.left);
-        int right = max(root.right);
+        // 求以当前节点为端点的最大值
+        private int getMax(TreeNode root) {
+            if (root == null) {
+                return 0;
+            }
+            int leftMax = getMax(root.left);
+            int rightMax = getMax(root.right);
 
-        int let = Math.max(root.val, Math.max(left, right) + root.val);
-        res = Math.max(res, Math.max(let, left + right + root.val));
-        return let;
+            int let = Math.max(root.val, Math.max(leftMax, rightMax) + root.val);
+            res = Math.max(res, Math.max(let, leftMax + rightMax + root.val));
+            return let;
+        }
 
     }
-
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

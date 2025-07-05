@@ -81,6 +81,9 @@ public class 路径总和 II113 {
     class Solution {
         public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
             List<List<Integer>> res = new ArrayList<>();
+            if (root == null) {
+                return res;
+            }
             backTracking(res, new ArrayList<>(), root, targetSum);
             return res;
         }
@@ -96,19 +99,16 @@ public class 路径总和 II113 {
                 res.add(new ArrayList<>(path));
                 return;
             }
-
             if (root.left != null) {
                 backTracking(res, path, root.left, targetSum);
                 path.remove(path.size() - 1);
             }
-
             if (root.right != null) {
                 backTracking(res, path, root.right, targetSum);
                 path.remove(path.size() - 1);
             }
-
-
         }
+
     }
     //leetcode submit region end(Prohibit modification and deletion)
 

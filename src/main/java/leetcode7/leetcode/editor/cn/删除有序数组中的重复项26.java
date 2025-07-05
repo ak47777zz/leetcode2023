@@ -75,14 +75,14 @@ public class 删除有序数组中的重复项26 {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int removeDuplicates(int[] nums) {
-            int k = 1;
-            for (int i = 1; i < nums.length; i++) {
-                if (nums[i] != nums[i - 1]) {
-                    nums[k] = nums[i];
-                    k++;
+            int left = 1;
+            for (int right = 1; right < nums.length; right++) {
+                if (nums[right] != nums[right - 1]) {
+                    nums[left] = nums[right];
+                    left++;
                 }
             }
-            return k;
+            return left;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
